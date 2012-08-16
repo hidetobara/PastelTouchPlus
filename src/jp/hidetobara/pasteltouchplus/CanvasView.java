@@ -559,7 +559,7 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback
 						int src1g = Color.green(src1);
 						int src1b = Color.blue(src1);
 
-						src1a = (int)( getSurfaceIntensity(xs, ys) * src1a );
+						src1a = (int)( getSurfaceIntensity(xs, ys) * (float)src1a );
 						int dsta = 256 - src1a;
 						
 						int r = (src1r*src1a + dstr*dsta)/256;
@@ -635,9 +635,12 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback
 				float d = dxx > dyy ? dxx*dxx : dyy*dyy;	//0-1
 				return d * 0.4f + 0.6f;
 			}else if(_Surface == SURFACE_RANDOM){
-				float dx = FloatMath.sin((float)Math.PI*x*7.0f / _CellWidth ) + FloatMath.sin((float)Math.PI*x*37.0f / _CellWidth );
-				float dy = FloatMath.sin((float)Math.PI*y*11.0f / _CellWidth ) + FloatMath.sin((float)Math.PI*y*17.0f / _CellWidth );
-				float d = (dx*dx + dy*dy)/2.0f;
+				float dx = FloatMath.sin((float)Math.PI*x*23.0f / _CellWidth )
+						* FloatMath.sin((float)Math.PI*x*37.0f / _CellWidth );
+				float dy = FloatMath.sin((float)Math.PI*y*53.0f / _CellWidth )
+						* FloatMath.sin((float)Math.PI*y*17.0f / _CellWidth );
+				float dxy = FloatMath.sin((float)Math.PI*(x+y)*19.0f / _CellWidth );
+				float d = (dx*dx + dy*dy + dxy*dxy)/3.0f;
 				return d * 0.4f + 0.6f;
 			}else{
 				return 1.0f;
