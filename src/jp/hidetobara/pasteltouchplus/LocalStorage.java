@@ -25,7 +25,7 @@ public class LocalStorage
 	private int _PenSize = 4;
 	private int _PenType = 0;
 	private int _PenColor = 0xff000000;
-	private String _CanvasSurface = "";
+	private String _CanvasSurface = "random";
 
 	public int getPenSize(){ return _PenSize; }
 	public int getPenColor(){ return _PenColor; }
