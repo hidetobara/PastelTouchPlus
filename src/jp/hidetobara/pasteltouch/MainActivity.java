@@ -1,4 +1,4 @@
-package jp.hidetobara.pasteltouchplus;
+package jp.hidetobara.pasteltouch;
 
 import android.os.Bundle;
 import android.app.Activity;

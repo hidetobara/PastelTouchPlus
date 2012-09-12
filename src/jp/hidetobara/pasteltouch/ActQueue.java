@@ -1,4 +1,4 @@
-package jp.hidetobara.pasteltouchplus;
+package jp.hidetobara.pasteltouch;
 
 import java.util.LinkedList;
 

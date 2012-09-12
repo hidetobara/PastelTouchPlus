@@ -1,4 +1,4 @@
-package jp.hidetobara.pasteltouchplus;
+package jp.hidetobara.pasteltouch;
 
 /*
  * 汚れなどの濃度指定クラス

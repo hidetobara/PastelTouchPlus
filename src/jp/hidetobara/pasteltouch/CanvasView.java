@@ -1,4 +1,4 @@
-package jp.hidetobara.pasteltouchplus;
+package jp.hidetobara.pasteltouch;
 
 
 import java.util.LinkedList;
@@ -33,7 +33,7 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback
 	public static final int SURFACE_FLAT = 0;
 	public static final int SURFACE_DITHER = 1;
 	public static final int SURFACE_RANDOM = 2;
-	private int _Surface = 0;
+	private int _Surface = 2;
 	public void setSurface(int s){ _Surface = s; }
 	
 	private int _Height, _Width;
