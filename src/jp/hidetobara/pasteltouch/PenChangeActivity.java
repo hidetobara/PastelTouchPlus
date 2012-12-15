@@ -295,9 +295,9 @@ public class PenChangeActivity extends Activity
         
         public ImageSurfacesAdapter(Context c)
         {
-        	m_items.add(new SurfaceItem(c, R.drawable.random, "random", "ざらざら"));
-        	m_items.add(new SurfaceItem(c, R.drawable.dither, "dither", "麻"));
-        	m_items.add(new SurfaceItem(c, R.drawable.flat, "flat", "つるつる"));
+        	m_items.add(new SurfaceItem(c, R.drawable.random, "random", "ざらざらな表面"));
+        	m_items.add(new SurfaceItem(c, R.drawable.dither, "dither", "麻状の表面"));
+        	m_items.add(new SurfaceItem(c, R.drawable.flat, "flat", "つるつるな表面"));
         }
 
         public int getCount() {

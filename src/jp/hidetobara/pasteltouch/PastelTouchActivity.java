@@ -297,18 +297,26 @@ public class PastelTouchActivity extends Activity
     	super.onActivityResult(requestCode, resultCode, i);
     }
     
+    //uriから読み込む
     private void handleUriFile(Uri uri)
     {
     	if(uri == null) return;
     	
     	_Uri = uri;
 		String path = getUriToPath(uri);
-		_Filehead = checkPastelTouchName(path);
-		
+		_Filehead = checkPastelTouchName(path);		
 		_Bitmap = Utility.loadBitmap(uri);
-		convertFitBitmap();
+		if(_Bitmap != null){
+			convertFitBitmap();	//読み込めた場合
+		}else{
+			_Uri = null;
+			_Filehead = null;
+			newBitmap();	//新規作成に移行
+		}
 		assignBitmap();
     }
+    
+    //新規作成
     private void handleNewFile()
     {
     	_Uri = null;
@@ -318,6 +326,7 @@ public class PastelTouchActivity extends Activity
     	newBitmap();
 		assignBitmap();
     }
+    
     private void handlePenActivityResult(Intent i)
     {
 		int type = i.getIntExtra(PenChangeActivity.NAME_TYPE, 0);
@@ -467,6 +476,7 @@ public class PastelTouchActivity extends Activity
     private String getUriToPath(Uri uri)
     {
 		Cursor c = getContentResolver().query(uri, null, null, null, null);
+		if(c == null) return "";
 		c.moveToFirst();
 		return c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA));
     }
