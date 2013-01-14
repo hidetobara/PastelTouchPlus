@@ -347,7 +347,11 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback
 		public PointPair(MotionEvent e)
 		{
 			Finger1 = new PointF(e.getX(0), e.getY(0));
-			Finger2 = new PointF(e.getX(1), e.getY(1));
+			if(e.getPointerCount() > 1){
+				Finger2 = new PointF(e.getX(1), e.getY(1));
+			}else{
+				Finger2 = new PointF(e.getX(0), e.getY(0));;
+			}
 		}
 		
 		public void add(PointPair p)

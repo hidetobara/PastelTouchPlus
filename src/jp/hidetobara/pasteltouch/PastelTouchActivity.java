@@ -233,7 +233,7 @@ public class PastelTouchActivity extends Activity
     private void setDefaultColor(int red, int green, int blue)
     {
     	_Canvas.setColor(red, green, blue, 224);
-    	_Canvas.setBlot(32, 32, 16);		_Canvas.setRemain(0, 128, 8);		_Canvas.setBase(24);
+    	_Canvas.setBlot(32, 32, 16);		_Canvas.setRemain(0, 128, 8);		_Canvas.setBase(32);
     }
     
     private void setDefaultFinger(int alpha, int remain)

@@ -2,12 +2,14 @@ package jp.hidetobara.pasteltouch;
 
 import java.util.ArrayList;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -47,6 +49,7 @@ public class PenChangeActivity extends Activity
 	ImageSizesAdapter _ImagesSize;
 	ImageSurfacesAdapter _ImagesSurface;
 	Button _ButtonOk;
+	AdView _Ad;
 	
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -73,6 +76,8 @@ public class PenChangeActivity extends Activity
 			gallery.setSelection(_PenSelect);
 			PenItem item = (PenItem)_ImagesPen.getItem(_PenSelect);
 			textView.setText(item.note);
+			
+			showAd();
 	   	}else if(_Mode == MODE_SIZE){
 			_ImagesSize = new ImageSizesAdapter(this);
 			gallery.setAdapter(_ImagesSize);
@@ -92,12 +97,21 @@ public class PenChangeActivity extends Activity
 	   		SurfaceItem item = (SurfaceItem)_ImagesSurface.getItem(_SurfaceSelect);
 	   		textView.setText(item.note);
 	   	}
+	   	gallery.setSpacing(0);
 		gallery.setOnItemClickListener(this);
 				
 		LinearLayout layout = (LinearLayout)findViewById(R.id.full_view);
 		layout.setOnClickListener(this);
     }
 
+    private void showAd()
+    {
+		_Ad = (AdView)findViewById(R.id.adView);
+        AdRequest request = new AdRequest();
+        request.addKeyword("美術");
+        _Ad.loadAd(request);
+    }
+    
     /*
      * アイテム以外を押したとき
      */
